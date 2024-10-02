@@ -9,12 +9,12 @@ class Program
 
         List<int> numbers = new List<int>();
 
-        int userNumber = -1;
+        Console.WriteLine("Enter some numbers (number '0' to end): ");
+        int userNumber = int.Parse(Console.ReadLine());
+
 
         while (userNumber != 0)
         {
-            Console.WriteLine("Enter some numbers (number '0' to end): ");
-            userNumber = int.Parse(Console.ReadLine());
 
             // It functionality verify if the number is a positive number but is not neccesary on this assignment.
 
@@ -27,6 +27,9 @@ class Program
             */
 
             numbers.Add(userNumber);
+
+            Console.WriteLine("Enter some numbers (number '0' to end): ");
+            userNumber = int.Parse(Console.ReadLine());
         }
         int total = 0;
         int maxNumber = numbers[0];
@@ -47,6 +50,7 @@ class Program
                 if (num < smallestNumber)
                     smallestNumber = num;
             }
+
         }
 
         float average = ((float)total) / numbers.Count;
