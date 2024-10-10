@@ -4,7 +4,7 @@ public class Entry
     public string _promptText;
     public string _entryText;
 
-    // Wiht an empty constructor
+    // With an empty constructor
     //    public Entry() {}
 
 
