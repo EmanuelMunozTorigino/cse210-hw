@@ -19,7 +19,7 @@ public class Scripture
     }
 
 
-    
+
 
     public void HideRandmomWords(int numberToHide)
     {
@@ -27,7 +27,7 @@ public class Scripture
 
         for (int i = 0; i < numberToHide; i++)
         {
-            int index = randomPos.Next(_words.Count - 1);
+            int index = randomPos.Next(_words.Count);
             _words[index].Hide();
         }
 
