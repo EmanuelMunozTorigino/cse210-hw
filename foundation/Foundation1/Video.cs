@@ -46,42 +46,4 @@ public class Video
         Console.WriteLine("______________________________________________________________________________________________");
     }
 
-
-
-
-
-    /*
-
-             foreach (Comment comment in _comments) {}
-            }
-
-            public void GetComment() {
-
-            while (Video != _comments[0].Comment) {}
-
-            }
-
-
-
-        public void DisplayVideoInfo() {
-
-
-            video1)
-            Aprendiendo Java Script - MiduDev - 180seg
-
-                - @emaDouglas - It was helpful
-                - 
-                -
-                -
-            ~|~~|~~|~~|~~|~~|~~|~~|~~|~~|~~|~~|~~|~~|~~|~~|~~|
-            video2)
-                -
-                -
-                -
-                -
-                -
-            ~|~~|~~|~~|~~|~~|~~|~~|~~|~~|~~|~~|~~|~~|~~|~~|~~|
-
-    */
-
 }

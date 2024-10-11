@@ -27,10 +27,11 @@ public class Address
         return address;
     }
 
+/*
     public string GetStreetAddress ()
     {
         return _address;
     }
-
+*/
 
 }

@@ -30,7 +30,7 @@ class Program
         {
             Random random = new Random();
 
-            int max = random.Next(5);
+            int max = random.Next(3, 5);
 
             int quantity = 0;
             while (quantity < max)
