@@ -26,18 +26,20 @@ Menu Options:
             {
 
                 case "1":
-                    BreathingActivity breathing = new BreathingActivity();
-                    breathing.Run();
+                    BreathingActivity breathingActivity = new BreathingActivity();
+                    breathingActivity.Run();
 
                     break;
                 case "2":
-                    ReflectingActivity reflecting = new ReflectingActivity();
+                    ReflectingActivity reflectingActivity = new ReflectingActivity();
 
+                    reflectingActivity.Run();
                     break;
                 case "3":
-                    ListingActivity listing = new ListingActivity();
-                    break;
+                    ListingActivity listingActivity = new ListingActivity();
+                    listingActivity.Run();
 
+                    break;
                 default:
                     Console.WriteLine("You chose a invalid option");
                     Console.WriteLine("Type again");

@@ -22,7 +22,7 @@ public class Activity
         _duration = int.Parse(Console.ReadLine());
         Console.Clear();
 
-        Console.WriteLine("Get Ready...");
+        Console.WriteLine("It'll start soon...");
         DisplaySpinner(5);
         Console.WriteLine();
     }
@@ -36,13 +36,10 @@ public class Activity
     public void DisplayEndingMessage()
     {
         //  Console.WriteLine("Well done!!");
-        Console.WriteLine("You are the best!");
-
-        Thread.Sleep(1000);
+        Console.WriteLine("Congratulations!!");
         DisplaySpinner(5);
         Console.WriteLine();
         Console.WriteLine($"You have completed {_name} Activity for {_duration} seconds");
-        Thread.Sleep(1000);
         DisplaySpinner(5);
     }
 
