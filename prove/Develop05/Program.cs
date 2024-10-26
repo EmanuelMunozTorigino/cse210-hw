@@ -52,8 +52,8 @@ Menu Options:
             option = Console.ReadLine();
         }
 
+        Console.WriteLine("Thanks to take time for you, Mental and Emotional health is very important, Use it as many times as you need to relax");
+
+        Console.WriteLine("The program ended");
     }
-
-
-
 }
