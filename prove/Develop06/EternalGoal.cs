@@ -5,20 +5,22 @@ public class EternalGoal : Goal
 
     public override void RecordEvent()
     {
-
+        string points = GetPoints();
+        Console.WriteLine($"Congratulations! You earned {points} points!");
     }
 
     public override bool isComplete()
-    {
-        return true;
+    {    
+        return false;
+
     }
 
     public override string GetStringRepresentation()
     {
-        string shortName = getShortName();
-        string description = getDescription();
-        string points = getPoints();
-        return $"ChecklistGoal:{shortName},{description},{points}";
+        string shortName = GetShortName();
+        string description = GetDescription();
+        string points = GetPoints();
+        return $"EternalGoal:{shortName},{description},{points}";
     }
 
 }

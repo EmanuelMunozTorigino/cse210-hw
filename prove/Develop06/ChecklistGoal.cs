@@ -21,16 +21,25 @@ public class checklistGoal : Goal
     }
     public override string GetDetailsString()
     {
-        string shortName = getShortName();
-        string description = getDescription();
-        return $"[ ] {shortName} ({description}) -- Currently completed {_amountCompleted}/{_target}";
+        string shortName = GetShortName();
+        string description = GetDescription();
+
+        if (isComplete())
+        {
+            return $"[X] {shortName} ({description}) -- Currently completed {_amountCompleted}/{_target}";
+        }
+        else
+        {
+            return $"[ ] {shortName} ({description}) -- Currently completed {_amountCompleted}/{_target}";
+        }
+
     }
 
     public override string GetStringRepresentation()
     {
-        string shortName = getShortName();
-        string description = getDescription();
-        string points = getPoints();
+        string shortName = GetShortName();
+        string description = GetDescription();
+        string points = GetPoints();
         return $"ChecklistGoal:{shortName},{description},{points},{_bonus},{_amountCompleted},{_target}";
     }
 

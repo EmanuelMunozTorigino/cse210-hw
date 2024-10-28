@@ -1,3 +1,4 @@
+using System.Formats.Asn1;
 using System.Xml.Serialization;
 
 public class GoalManager
@@ -73,6 +74,7 @@ Menu options:
                     }
                 case "5":
                     {
+                        ListGoalNames();
                         break;
                     }
                 case "6":
@@ -96,9 +98,13 @@ Menu options:
 
     public void ListGoalNames()
     {
+        int count = 1;
+        Console.WriteLine("The Goals are:");
         foreach (Goal goal in _goals)
         {
-
+            Console.WriteLine(goal);
+            Console.WriteLine($"{count}. {goal.GetShortName()}");
+            count++;
         }
 
     }
@@ -109,11 +115,9 @@ Menu options:
         Console.WriteLine("The goals are:");
         foreach (Goal goal in _goals)
         {
-            Console.WriteLine(goal);
             Console.WriteLine($"{index}. {goal.GetDetailsString()}");
             index++;
         }
-
     }
 
     public void CreateGoal()
@@ -181,7 +185,22 @@ The types of Goals are:
 
     public void RecordEvent()
     {
+        ListGoalNames();
 
+        Console.Write("Which goal did you accomplish? ");
+
+        int answer = int.Parse(Console.ReadLine());
+
+
+        foreach (Goal goal in _goals)
+        {
+            goal[1]
+
+
+        }
+
+
+        Console.WriteLine($"You now have {_score} points");
     }
 
     public void SaveGoals(string filename)
@@ -205,26 +224,19 @@ The types of Goals are:
 
     public void LoadGoals(string filename)
     {
-
-    }
-
-
-    public void LoadFromFile(string filename)
-    {
         Console.WriteLine("File succesfully loaded..");
 
         string[] lines = System.IO.File.ReadAllLines(filename);
-
-        _score = int.Parse(lines[0]);
 
         int count = 0;
         foreach (string line in lines)
         {
             if (count == 0)
             {
+                _score = int.Parse(line);
+                count++;
                 continue;
             }
-            count++;
 
             string[] Twoparts = line.Split(":");
             string goalName = Twoparts[0];
@@ -233,7 +245,7 @@ The types of Goals are:
             {
                 case "SimpleGoal":
                     {
-                        string[] parts = line.Split(",");
+                        string[] parts = Twoparts[1].Split(",");
                         string name = parts[0];
                         string description = parts[1];
                         string points = parts[2];
@@ -244,7 +256,7 @@ The types of Goals are:
                     }
                 case "EternalGoal":
                     {
-                        string[] parts = line.Split(",");
+                        string[] parts = Twoparts[1].Split(",");
                         string name = parts[0];
                         string description = parts[1];
                         string points = parts[2];
@@ -254,12 +266,12 @@ The types of Goals are:
                     }
                 case "ChecklistGoal":
                     {
-                        string[] parts = line.Split(",");
+                        string[] parts = Twoparts[1].Split(",");
                         string name = parts[0];
                         string description = parts[1];
                         string points = parts[2];
-                        int target = int.Parse(parts[3]);
-                        int bonus = int.Parse(parts[4]);
+                        int bonus = int.Parse(parts[3]);
+                        int target = int.Parse(parts[4]);
                         checklistGoal checklistGoal = new checklistGoal(name, description, points, target, bonus);
                         _goals.Add(checklistGoal);
                         break;
@@ -268,9 +280,6 @@ The types of Goals are:
                     Console.WriteLine("Goal type not found");
                     break;
             }
-
         }
-
     }
-
 }
