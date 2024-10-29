@@ -7,16 +7,9 @@ public class Cycling : Activity
         _speed = speed;
     }
 
-    public override double CalculatePace() {
-        return 60 / _speed;
-    }
-
-    public override double CalculateSpeed() {
-        return _speed;
-        }
-
-    public override double CalculateDistance() {
-        return  _speed * GetDuration() / 60 ;
+    public override double CalculateDistance()
+    {
+        return _speed * GetDuration() / 60;
     }
 
 }
