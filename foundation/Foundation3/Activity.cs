@@ -33,11 +33,11 @@ public class Activity
     {
         if (GetType().Name.ToLower() == "cycling")
         {
-            return $"{_date}: {GetType().Name} ({_duration} min.) : Distance {CalculateDistance()} km, Speed: {CalculateSpeed()} kph";
+            return $"{_date}: {GetType().Name} ({_duration} min) -- Distance {CalculateDistance()} km, Speed: {CalculateSpeed()} kph";
         }
         else
         {
-            return $"{_date}: {GetType().Name} ({_duration} min.) : Distance {CalculateDistance()} km, Speed: {CalculateSpeed()} kph, Pace: {CalculatePace()} min. per km";
+            return $"{_date}: {GetType().Name} ({_duration} min) -- Distance {CalculateDistance()} km, Speed: {CalculateSpeed()} kph, Pace: {CalculatePace()} min per km.";
         }
     }
 

@@ -21,7 +21,7 @@ class Program
         Cycling Cycling = new Cycling("22 Dec 2024", 45, 12.0);
 
         activities.Add(Cycling);
-
+        Console.WriteLine();
         foreach (Activity activity in activities)
         {
             Console.WriteLine(activity.GetSummary());
