@@ -24,22 +24,28 @@ public abstract class Goal
     {
         return _points;
     }
+    public void SetPoints(string points)
+    {
+        _points = points;
+    }
 
     public abstract void RecordEvent();
 
-    public abstract bool isComplete();
+    public abstract bool IsComplete();
+    public abstract string GetStringRepresentation();
 
     public virtual string GetDetailsString()
     {
-        if (isComplete()){
+        if (IsComplete())
+        {
             return $"[X] {_shortName} ({_description})";
 
         }
-        else {
+        else
+        {
             return $"[ ] {_shortName} ({_description})";
         }
     }
 
-    public abstract string GetStringRepresentation();
 
 }

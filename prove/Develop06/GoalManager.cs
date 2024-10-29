@@ -48,6 +48,8 @@ Menu options:
 
                 case "1":
                     {
+                        Console.WriteLine();
+                        Console.WriteLine();
                         CreateGoal();
                         break;
                     }
@@ -58,6 +60,7 @@ Menu options:
                     }
                 case "3":
                     {
+                        Console.WriteLine();
                         Console.Write("Choose a file name (txt) to save the personal Goals: ");
                         string filenameSave = Console.ReadLine();
                         SaveGoals(filenameSave);
@@ -65,6 +68,7 @@ Menu options:
                     }
                 case "4":
                     {
+                        Console.WriteLine();
                         Console.Write("Enter a file name (txt) to load the Goals details: ");
 
                         string filenameLoad = Console.ReadLine();
@@ -74,7 +78,8 @@ Menu options:
                     }
                 case "5":
                     {
-                        ListGoalNames();
+                        Console.WriteLine();
+                        RecordEvent();
                         break;
                     }
                 case "6":
@@ -102,7 +107,6 @@ Menu options:
         Console.WriteLine("The Goals are:");
         foreach (Goal goal in _goals)
         {
-            Console.WriteLine(goal);
             Console.WriteLine($"{count}. {goal.GetShortName()}");
             count++;
         }
@@ -122,20 +126,20 @@ Menu options:
 
     public void CreateGoal()
     {
-
         Console.WriteLine("""
-The types of Goals are:
+The types of goals are:
   1. Simple Goal
   2. Eternal Goal
   3. Checklist Goal
 """);
-        Console.Write("Which type of goal would you like to create? ");
+        Console.Write("Which type would you like to create? ");
         string goalToCreate = Console.ReadLine();
 
         switch (goalToCreate)
         {
             case "1":
                 {
+                    Console.WriteLine("Simple Goal:");
                     Console.Write("What is the name of your Goal? ");
                     string name = Console.ReadLine();
                     Console.Write("What is a short description of it? ");
@@ -148,6 +152,7 @@ The types of Goals are:
                 }
             case "2":
                 {
+                    Console.WriteLine("Eternal Goal:");
                     Console.Write("What is the name of your Goal? ");
                     string name = Console.ReadLine();
                     Console.Write("What is a short description of it? ");
@@ -160,6 +165,7 @@ The types of Goals are:
                 }
             case "3":
                 {
+                    Console.WriteLine("Checklist Goal:");
                     Console.Write("What is the name of your Goal? ");
                     string name = Console.ReadLine();
                     Console.Write("What is a short description of it? ");
@@ -191,13 +197,13 @@ The types of Goals are:
 
         int answer = int.Parse(Console.ReadLine());
 
+        Goal goal = _goals[answer - 1];
+        goal.RecordEvent();
 
-        foreach (Goal goal in _goals)
-        {
-            goal[1]
+        int point = int.Parse(goal.GetPoints());
 
+        _score += point;
 
-        }
 
 
         Console.WriteLine($"You now have {_score} points");
@@ -249,7 +255,9 @@ The types of Goals are:
                         string name = parts[0];
                         string description = parts[1];
                         string points = parts[2];
+                        bool isComplete = bool.Parse(parts[3]);
                         SimpleGoal simpleGoal = new SimpleGoal(name, description, points);
+                        simpleGoal.SetIsComplete(isComplete);
                         _goals.Add(simpleGoal);
 
                         break;
@@ -271,9 +279,12 @@ The types of Goals are:
                         string description = parts[1];
                         string points = parts[2];
                         int bonus = int.Parse(parts[3]);
-                        int target = int.Parse(parts[4]);
+                        int target = int.Parse(parts[5]);
+                        int amountCompleted = int.Parse(parts[4]);
                         checklistGoal checklistGoal = new checklistGoal(name, description, points, target, bonus);
+                        checklistGoal.SetAmountCompleted(amountCompleted);
                         _goals.Add(checklistGoal);
+
                         break;
                     }
                 default:

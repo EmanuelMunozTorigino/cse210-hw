@@ -1,0 +1,4 @@
+250
+SimpleGoal:Give a talk,Speak in sacrament meeting,100,True
+EternalGoal:Study the book of mormon,Every night for 30 minutes,50
+ChecklistGoal:Attend the holy temple,participate and enjoy of sacred ordinances,25,500,2,3

@@ -9,10 +9,9 @@ public class EternalGoal : Goal
         Console.WriteLine($"Congratulations! You earned {points} points!");
     }
 
-    public override bool isComplete()
+    public override bool IsComplete()
     {    
         return false;
-
     }
 
     public override string GetStringRepresentation()
